@@ -1,0 +1,21 @@
+spring:
+  # 数据库连接配置
+  datasource:
+    url: jdbc:mysql://localhost:3306/springboot-boostrap
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.jdbc.Driver
+  # 模板引擎配置
+  thymeleaf:
+    cache: false
+# mybatis 配置
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+  mapper-locations: classpath:mappers/*.xml
+# 日志
+logging:
+  level:
+    com.cj.*: debug
+  # springBoot运行日志
+#debug: true

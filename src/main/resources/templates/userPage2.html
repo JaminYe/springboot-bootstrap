@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<!--
+  Created by IntelliJ IDEA.
+  User: Jamin
+  Date: 2019/4/27
+  Time: 14:09
+  Desc:
+  -->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:insert="header::header('用户管理客户端分页')">
+    <meta charset="UTF-8">
+    <title>用户管理</title>
+</head>
+<body>
+<table id="table">
+
+
+</table>
+
+</body>
+<script>
+    <!--入口函数-->
+    $(function () {
+        $("#table").bootstrapTable({
+            //请求方式
+            method: "get",
+            //请求路径
+            url: "getUser2",
+            //缓存
+            cache: false,
+            //隔行换色
+            striped:
+                true,
+            //初始化加载第一页
+            pageNumber: 1,
+            //显示分页
+            pagination:
+                true,
+            //    可供选择的页面条数
+            pageList:
+                [3, 6, 9, 12],
+            //    每页显示数
+            pageSize:
+                3,
+            //服务器分页
+            sidePagination:
+                'client',
+            //显示刷新按钮
+            showRefresh: true,
+            queryParams:
+
+                function (params) {
+                    return {}
+
+                }
+
+            ,
+            columns:
+                [{
+                    field: 'userId',
+                    title: '用户id',
+                    align: 'center',
+                    valign: 'middle'
+                }, {
+                    field: 'userAccount',
+                    title: '用户账户',
+                    align: 'center',
+                    valign: 'middle'
+                }, {
+                    field: 'userName',
+                    title: '用户名',
+                    align: 'center',
+                    valign: 'middle'
+                }, {
+                    field: 'userTel',
+                    title: '用户手机号',
+                    align: 'center',
+                    valign: 'middle'
+                }, {
+                    field: 'userEmail',
+                    title: '用户邮箱',
+                    align: 'center',
+                    valign: 'middle'
+                },
+                    {
+                        title: '操作',
+                        align: 'center',
+                        valign: 'middle',
+                        formatter: function (value, row, index) {
+                            var clas = 'btn btn-primary btn-sm';
+                            var btn_update = '<button class="' + clas + '" onclick="edit(\'' + row.userId + '\')">编辑</button>';
+                            var btn_delete = '<button class="' + clas + '" onclick="del(\'' + row.userId + '\')">删除</button>';
+                            var btn = btn_update + btn_delete;
+                            return btn;
+
+
+                        }
+                    }
+
+                ],
+            onLoadSuccess:
+
+                function () {
+                    console.info("加载成功");
+                }
+
+            ,
+            onLoadError: function () {
+                console.info("加载失败");
+            }
+
+
+        })
+
+
+
+    })
+
+
+</script>
+
+
+</html>

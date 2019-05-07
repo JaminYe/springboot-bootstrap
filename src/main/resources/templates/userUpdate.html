@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<!--
+  Created by IntelliJ IDEA.
+  User: Jamin
+  Date: 2019/5/7
+  Time: 19:57
+  Desc: 用户修改
+  -->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:insert="header::header('用户修改')">
+    <meta charset="UTF-8">
+    <title>用户修改</title>
+</head>
+<body>
+<form id="userUpdate">
+    <table th:object="${user}">
+        <tr>
+            <td><input type="text" th:value="${user.userId}" id="userId"></td>
+        </tr>
+        <tr>
+            <td>用户账号</td>
+            <td><input type="text" th:value="${user.userAccount}" id="userAccount"></td>
+        </tr>
+        <tr>
+            <td>用户密码</td>
+            <td><input type="text" th:value="${user.userPassword}" id="userPassword"></td>
+        </tr>
+        <tr>
+            <td>用户名</td>
+            <td><input type="text" th:value="${user.userName}" id="userName"></td>
+        </tr>
+        <tr>
+            <td>用户手机号</td>
+            <td><input type="text" th:value="${user.userTel}" id="userTel"></td>
+        </tr>
+        <tr>
+            <td>用户Email</td>
+            <td><input type="text" th:value="${user.userEmail}" id="userEmail"></td>
+        </tr>
+        <tr>
+            <td>
+                <input type="button" value="修改" onclick="updateSubmit()">
+            </td>
+        </tr>
+
+    </table>
+
+
+</form>
+</body>
+</html>
